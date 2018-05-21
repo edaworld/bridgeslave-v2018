@@ -12,7 +12,7 @@ uint8_t IsReceiveHostData = FALSE; //正确接收主机的数据包标志位
 SLAVEDATA s_SlaveData; //从机发送到主机的结构体
 READVALUE s_ReadData; //发送实部和虚部的结构体
 static uint32_t measureNumbers;//测量点数
-uint8_t isSingbleMeasureFlag = FALSE;
+static uint8_t isSingbleMeasureFlag = FALSE;
 
 TPC_TASK TaskComps[3] =
 {
@@ -56,23 +56,27 @@ void Task_SendToHost(void)
 {
 	if(IsReceiveHostData == TRUE)    //接收到主机发送过来的信号
 	{
-		if(recvdatbuffer[1] == 0xEF)    //握手指令
-		{
-			s_SlaveData.msg[1] = 0xEF;
-			s_SlaveData.msg[2] = 0x01;
-	}
-		if(recvdatbuffer[1] == 0x7F)    //设置起始频率、截止频率、测量点数、PZT和阻抗量程
-		{
-			memcpy(s_SlaveData.msg, recvdatbuffer, 12);
-			AD5933_Set_Freq_Start(s_SlaveData.msg[2]);
-			AD5933_Set_Freq_Num(s_SlaveData.data);
-			measureNumbers = s_SlaveData.data;
-			AD5933_Set_Freq_Add((s_SlaveData.msg[3] - s_SlaveData.msg[2]) * 1000 / s_SlaveData.data);
-			pztMuxSwitch(s_SlaveData.msg[9]);
-			rfbMuxSwitch(s_SlaveData.msg[10]);
-			s_SlaveData.msg[1] = 0x7F;
-			s_SlaveData.msg[2] = 0x01;
-		}
+//		if(recvdatbuffer[1] == 0xEF)    //握手指令
+//		{
+//			s_SlaveData.msg[1] = 0xEF;
+//			s_SlaveData.msg[2] = 0x01;
+//		}
+//		
+//		if(recvdatbuffer[1] == 0x7F)    //设置起始频率、截止频率、测量点数、PZT和阻抗量程
+//		{
+//			memcpy(s_SlaveData.msg, recvdatbuffer, 12);
+//			AD5933_Set_Freq_Start(s_SlaveData.msg[2]);
+//			AD5933_Set_Freq_Num(s_SlaveData.data);
+//			measureNumbers = s_SlaveData.data;
+//			AD5933_Set_Freq_Add((s_SlaveData.msg[3] - s_SlaveData.msg[2]) * 1000 / s_SlaveData.data);
+//			pztMuxSwitch(s_SlaveData.msg[9]);
+//			rfbMuxSwitch(s_SlaveData.msg[10]);
+//			s_SlaveData.msg[1] = 0x7F;
+//			s_SlaveData.msg[2] = 0x01;
+//		}
+		
+		
+		
 		if(recvdatbuffer[1] == 0x3F)    //设置单频测量指令,频率为起始频率
 		{
 			isSingbleMeasureFlag = 1;
@@ -105,7 +109,11 @@ void Task_SendToHost(void)
 		s_SlaveData.head = '&';
 		s_SlaveData.tail = '%';
 		RFSendData(s_SlaveData.msg, 12);   
-		mem_set(s_SlaveData.msg, 0, 12);   
+		mem_set(s_SlaveData.msg, 0, 12);
+
+
+
+		
 		TaskComps[1].attrb = 1; 
 		IsReceiveHostData = FALSE;
 	}
