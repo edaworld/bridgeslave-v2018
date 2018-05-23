@@ -28,8 +28,8 @@ void bsp_Init(void)
     RFRxMode();  //进入接收模式
     //初始化SX1278的中断引脚
     GPIO_Configuration();
-    NVIC_Configuration();
-    EXTI_Configuration(); 	
+//    NVIC_Configuration();
+//    EXTI_Configuration(); 	
     //初始化AD5933
     I2C_EE_Init();
     Init_AD5933();
@@ -70,5 +70,5 @@ void bsp_RunPer1ms(void)
 *********************************************************************************************************/
 void bsp_Idle(void)
 {
-	TPCProcess(TaskComps);    //处理任务，定时时间到达的，即得到执行
+//	TPCProcess(TaskComps);    //处理任务，定时时间到达的，即得到执行
 }

@@ -386,11 +386,6 @@
               <FileType>1</FileType>
               <FilePath>.\Source\UserCode\main.c</FilePath>
             </File>
-            <File>
-              <FileName>bsp_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Source\UpDrive\bsp_task.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -475,11 +470,6 @@
               <FileName>bsp_userlib.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Source\UpDrive\bsp_userlib.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_tpc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Source\UpDrive\bsp_tpc.c</FilePath>
             </File>
           </Files>
         </Group>

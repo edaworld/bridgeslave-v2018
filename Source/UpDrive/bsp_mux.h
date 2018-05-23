@@ -2,19 +2,28 @@
 #define  __BSP_MUX_H
 #include "stm32f10x.h" // Device header
 
-#define PZTMUX_GPIO_PORT        GPIOC
-#define PZTMUX_GPIO_CLK         RCC_APB2Periph_GPIOC
-#define PZTMUX_GPIO_EN1         GPIO_Pin_0
-#define PZTMUX_GPIO_RA1         GPIO_Pin_1
-#define PZTMUX_GPIO_RA2         GPIO_Pin_2
-#define PZTMUX_GPIO_RA3         GPIO_Pin_3
+#define PZTMUX_GPIO_PORT        GPIOB
+#define PZTMUX_GPIO_CLK         RCC_APB2Periph_GPIOB
+#define PZTMUX_GPIO_Z1         	GPIO_Pin_0
+#define PZTMUX_GPIO_Z2         	GPIO_Pin_1
+#define PZTMUX_GPIO_Z3         	GPIO_Pin_3
+#define PZTMUX_GPIO_Z4         	GPIO_Pin_4
+#define PZTMUX_GPIO_Z5         	GPIO_Pin_8
+#define PZTMUX_GPIO_Z6         	GPIO_Pin_9
+#define PZTMUX_GPIO_Z7         	GPIO_Pin_10
+#define PZTMUX_GPIO_Z8         	GPIO_Pin_11
 
-#define RFB_GPIO_PORT           GPIOD
-#define RFB_GPIO_CLK            RCC_APB2Periph_GPIOD
-#define RFB_GPIO_EN2            GPIO_Pin_3
-#define RFB_GPIO_RB1            GPIO_Pin_2
-#define RFB_GPIO_RB2            GPIO_Pin_1
-#define RFB_GPIO_RB3            GPIO_Pin_0
+#define RFB_GPIO_PORT           GPIOA
+#define RFB_GPIO_CLK            RCC_APB2Periph_GPIOA
+#define RFB_GPIO_R1            	GPIO_Pin_3
+#define RFB_GPIO_R2            	GPIO_Pin_4
+#define RFB_GPIO_R3            	GPIO_Pin_5
+#define RFB_GPIO_R4            	GPIO_Pin_6
+#define RFB_GPIO_R5            	GPIO_Pin_7
+#define RFB_GPIO_R6            	GPIO_Pin_11
+#define RFB_GPIO_R7            	GPIO_Pin_12
+#define RFB_GPIO_R8            	GPIO_Pin_15
+
 
 //以下定义反馈电阻对应序号
 #define RFB_100_1K          0

@@ -29,7 +29,7 @@
 #include "bsp_spi2.h"
 //#include "bsp_oledio.h"
 #include "bsp_userlib.h"
-#include "bsp_tpc.h"
+//#include "bsp_tpc.h"
 #include "bsp_task.h"
 #include "bsp_uartpro.h"
 #include "bsp_timer.h"

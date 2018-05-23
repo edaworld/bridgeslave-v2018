@@ -49,7 +49,6 @@ void EXTI2_IRQHandler(void)
 {
 	if ( EXTI_GetITStatus(EXTI_Line2) != RESET ) {
 		EXTI_ClearITPendingBit(EXTI_Line2);
-		IsEnterIRQ = TRUE;
 	}	
 }
 
