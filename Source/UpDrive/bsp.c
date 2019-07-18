@@ -14,15 +14,16 @@
 void bsp_Init(void)
 {
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);  //初始化中断优先级
-    //初始化Led的GPIO
+//    初始化Led的GPIO
     LED_Init(); 
-    //初始化定时器 
+//    初始化定时器 
     SysTickTimer_Init();    //初始化系统滴答定时器 (此函数会开中断)
+
     bsp_HardTimerInit();    //初始化硬件定时器
    
-    //以下为开启3个串口
+//    以下为开启3个串口
     UART_InitALL(); //初始化串口
-    //初始化SX1278
+//    初始化SX1278
     RFGPIOInit();
     RFInit();    //射频模块初始化
     RFRxMode();  //进入接收模式
@@ -30,10 +31,10 @@ void bsp_Init(void)
     GPIO_Configuration();
 //    NVIC_Configuration();
 //    EXTI_Configuration(); 	
-    //初始化AD5933
+//    初始化AD5933
     I2C_EE_Init();
     Init_AD5933();
-    //初始化多路选择器
+//    初始化多路选择器
     bsp_pztMux_Init();
     bsp_rfbMux_Init();
 }

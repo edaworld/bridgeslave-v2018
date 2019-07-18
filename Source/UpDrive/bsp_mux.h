@@ -8,10 +8,14 @@
 #define PZTMUX_GPIO_Z2         	GPIO_Pin_1
 #define PZTMUX_GPIO_Z3         	GPIO_Pin_3
 #define PZTMUX_GPIO_Z4         	GPIO_Pin_4
-#define PZTMUX_GPIO_Z5         	GPIO_Pin_8
-#define PZTMUX_GPIO_Z6         	GPIO_Pin_9
-#define PZTMUX_GPIO_Z7         	GPIO_Pin_10
-#define PZTMUX_GPIO_Z8         	GPIO_Pin_11
+//此处的定义，原理图中P10对应Z6，IO口是PB9
+#define PZTMUX_GPIO_Z5         	GPIO_Pin_9
+//此处的定义，原理图中P11对应Z7，IO口是PB10
+#define PZTMUX_GPIO_Z6         	GPIO_Pin_10
+//此处的定义，原理图中P12对应Z8，IO口是PB11
+#define PZTMUX_GPIO_Z7         	GPIO_Pin_11
+//此处的定义，原理图中P13对应Z5，IO口是PB8
+#define PZTMUX_GPIO_Z8         	GPIO_Pin_8
 
 #define RFB_GPIO_PORT           GPIOA
 #define RFB_GPIO_CLK            RCC_APB2Periph_GPIOA
@@ -25,7 +29,7 @@
 #define RFB_GPIO_R8            	GPIO_Pin_15
 
 
-//以下定义反馈电阻对应序号
+//以下定义反馈电阻对应序号，在原理图中阻值减少了1个等级，分别从10Ω到1M
 #define RFB_100_1K          0
 #define RFB_1K_10K          1
 #define RFB_10K_50K         2

@@ -369,6 +369,8 @@ u8 RFM96_LoRaEntryTx ( u8 packet_length )
 **Input:    None
 **Output:   1- Send over
 **********************************************************/
+
+
 u8 RFM96_LoRaTxPacket ( u8 *buf, u8 len )
 {
     u16 count = 0;

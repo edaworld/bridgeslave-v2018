@@ -42,7 +42,7 @@ void bsp_pztMux_Init ( void )
 		GPIO_ResetBits ( PZTMUX_GPIO_PORT, PZTMUX_GPIO_Z8 );		
 }
 
-void    pztMuxSwitch(uint8_t portnum)
+void pztMuxSwitch(uint8_t portnum)
 {
     switch(portnum)
     {
