@@ -116,7 +116,7 @@ int main(void)
 						AD5933_Set_Mode_Freq_UP();
 					}
 				}
-				else if((temp & 0x04) == 0x04)
+				else if((temp & 0x04) == 0x04)//É¨Æµ²âÁ¿Íê³É
 				{				
 					readAD5933count = 0;
 					isReadingAD5933 = 0;					

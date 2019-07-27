@@ -1,6 +1,6 @@
 #include "bsp.h"
 
-#define AD5933_MCLK 16.776  //=536870912/MCLK;
+#define AD5933_MCLK 16.776  //=536870912/MCLK; 16.776对应的是内部频率
 unsigned int iMode;
 
 void Init_AD5933 ( void )
@@ -13,10 +13,10 @@ void Init_AD5933 ( void )
 	//add by xiaojun for output spped 2018-4-29
 	//for ADC sampling about 1ms, here set the wait time, All time = wait time + ADC sampling time
 	//wait time = stimuls T (10us) * register
-	I2C_EE_ByteWrite( 0x8A, 0x02);//0x20: multiple by 2,0x06:mulitple by 4
-	I2C_EE_ByteWrite( 0x8B, 200 );		
+	I2C_EE_ByteWrite( 0x8A, 0x02);//建立时间周期数0x20: multiple by 2,0x06:mulitple by 4
+	I2C_EE_ByteWrite( 0x8B, 200 );//建立时间周期数		
 	
-	AD5933_Set_Mode ( AD5933_Standby, AD5933_OUTPUT_2V, AD5933_Gain_1, AD5933_IN_MCLK, AD5933_NReset );
+	AD5933_Set_Mode( AD5933_Standby, AD5933_OUTPUT_2V, AD5933_Gain_1, AD5933_IN_MCLK, AD5933_NReset );
 	AD5933_Set_Mode_Rst();
 	AD5933_Set_Mode_SysInit();
 	//delay for enough time
@@ -39,9 +39,10 @@ void Fre_To_Hex ( float fre, u8 *buf )
     函数名: AD5933_Set_Freq_Start
     功能说明:82、83、84设置起始频率
 **********************************************************************************************************/
-void AD5933_Set_Freq_Start ( unsigned int freq ) //
+void AD5933_Set_Freq_Start ( unsigned int freq ) //此处已经在Fre_To_Hex中实现了频率值到写入值得转换
 {
 	unsigned char buf[3];
+	freq = freq *1024;//由于上位机是以K为单位来传送的
 	Fre_To_Hex ( freq, buf );
 	I2C_EE_ByteWrite ( 0x82, buf[0] );
 	I2C_EE_ByteWrite ( 0x83, buf[1] );
@@ -51,7 +52,7 @@ void AD5933_Set_Freq_Start ( unsigned int freq ) //
     函数名: AD5933_Set_Freq_Add
     功能说明:设置频率增量
 **********************************************************************************************************/
-void AD5933_Set_Freq_Add ( unsigned int afreq ) //85,86,87设置频率增量
+void AD5933_Set_Freq_Add ( unsigned int afreq ) // 85,86,87设置频率增量
 {
 	unsigned char buf[3];
 	Fre_To_Hex ( afreq, buf );

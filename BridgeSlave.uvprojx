@@ -10,6 +10,7 @@
       <TargetName>BridgeSlave</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pArmCC>5060750::V5.06 update 6 (build 750)::ARMCC</pArmCC>
       <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
@@ -477,6 +478,16 @@
         </Group>
         <Group>
           <GroupName>readme</GroupName>
+        </Group>
+        <Group>
+          <GroupName>doc</GroupName>
+          <Files>
+            <File>
+              <FileName>说明文档.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\说明文档.txt</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
